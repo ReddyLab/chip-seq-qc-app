@@ -3,7 +3,7 @@ const config = require('../config/database');
 
 // Schema for ChIP sample
 const SampleSchema = mongoose.Schema({
-    name: {
+    sample: {
         type: String,
         required: true
     },
@@ -38,3 +38,26 @@ const SampleSchema = mongoose.Schema({
     factor_name: { type: String },
     image: { type: String }
 });
+
+const Sample = module.exports = mongoose.model('Sample', SampleSchema);
+
+// Fetch Sample by database id
+module.exports.getSampleById = function(id, callback) {
+    Sample.getSampleById(id, callback);
+};
+
+// Fetch Sample by Sample name
+module.exports.getSampleByName = function(name, callback) {
+    const query = {sample: name};
+    Sample.findOne(query, callback);
+};
+
+// Fetch Sample by Regex (samples that contain pattern)
+module.exports.getSampleByInput = function(input, callback) {
+    Sample.find({sample: {$regex: String(input), $options: "i"}}, callback);
+};
+
+// Add Sample
+module.exports.addSample = function(sample, callback) {
+    Sample.save(callback);
+};

@@ -1,0 +1,9 @@
+<h2 class="page-header">Search for a sample:</h2>
+<form (submit)="onSearchSubmit()">
+  <div class="form-group">
+    <label>Sample</label>
+    <input type="text" [(ngModel)]="input" name="input" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Search">
+</form>
+<div *ngFor="let result of results">{{result.sample}}</div>
