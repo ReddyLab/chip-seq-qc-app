@@ -1,0 +1,28 @@
+#sidenav {
+  margin: 0;
+  height: 100%;
+  width: 25%;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0;
+  background-color: #888; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+button {
+  outline: none;
+}
+
+.list-group-item.text-left {
+  cursor: pointer;
+}
+
+.list-group-item:hover.text-left {
+  background-color: lightgray;
+}
+
+.list-group-item.selected {
+  background-color: lightskyblue;
+}

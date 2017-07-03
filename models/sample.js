@@ -53,8 +53,13 @@ module.exports.getSampleByName = function(name, callback) {
 };
 
 // Fetch Sample by Regex (samples that contain pattern)
-module.exports.getSampleByInput = function(input, callback) {
+module.exports.getSampleNameByInput = function(input, callback) {
     Sample.find({sample: {$regex: String(input), $options: "i"}}, callback);
+};
+
+// Fetch Sample by Factor Name
+module.exports.getSampleByFactor = function(factor, callback) {
+    Sample.find({factor_name: factor}, callback);
 };
 
 // Add Sample

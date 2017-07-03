@@ -1,0 +1,11 @@
+<div class="pull-left clearfix" id="sidenav" *ngIf="show">
+  <em>{{results ? results.length : 'No'}} samples were found</em>
+  <div class="search-results">
+    <ul class="list-group">
+      <button type="button" class="list-group-item text-left" *ngFor="let result of results"
+              [class.selected]="result === selectedSample" (click)="clickSample(result)">
+        {{result.sample}}
+      </button>
+    </ul>
+  </div>
+</div>

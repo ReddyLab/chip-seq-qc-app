@@ -1,0 +1,12 @@
+#main {
+  position: relative;
+}
+
+.shifted {
+  margin-left: 33%;
+  width: 66%;
+}
+
+router-outlet {
+  padding: 10%;
+}

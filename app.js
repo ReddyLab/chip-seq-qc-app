@@ -35,12 +35,6 @@ const port = 3000;
 
 app.get('/', function(req, res, next) {
     res.send('Server works');
-    model.find({sample: {$regex: 'j', $options: "i"}}, function(err, sample) {
-        if(err) {
-            throw err;
-        }
-        console.log(sample);
-    });
 });
 
 app.listen(port, function() {

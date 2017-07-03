@@ -1,0 +1,92 @@
+<div class="page-header">
+  <h2>{{sample?.sample}}</h2>
+</div>
+<div id="data" class="container" *ngIf="sample">
+  <table class="table table-bordered">
+    <caption>ENCODE Metrics</caption>
+    <thead>
+    <tr>
+      <th>PBC</th>
+      <th>NSC</th>
+      <th>RSC</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td [class.warning]="sample?.pbc_one < 0.9 && sample?.pbc_one > 0.8" [class.danger]="sample?.pbc_one < 0.8">
+        {{sample?.pbc_one | notAvail | number : '1.2-4'}}
+      </td>
+      <td [class.warning]="sample?.nsc < 1.1">{{sample?.nsc | notAvail | number : '1.2-4'}}</td>
+      <td [class.warning]="sample?.nsc < 0.8">{{sample?.rsc | notAvail | number : '1.2-4'}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered">
+    <caption>CWL Metrics</caption>
+    <thead>
+    <tr>
+      <th>Raw Reads</th>
+      <th>Mapped Reads</th>
+      <th>% Unique Reads</th>
+      <th>Reads in Peaks</th>
+      <th>% Reads in Peaks</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{sample?.reads_sequenced | notAvail }}</td>
+      <td>{{sample?.reads_mapped | notAvail}}</td>
+      <td>{{sample?.percent_unique | notAvail | number: '1.2-4'}}</td>
+      <td>{{sample?.reads_in_peaks | notAvail}}</td>
+      <td [class.success]="sample?.percent_in_peaks > 1"[class.warning]="sample?.percent_in_peaks < 1">
+      {{sample?.percent_in_peaks | notAvail | number : '1.2-4'}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <img id="graph" [src]="photoURL()"/>
+
+  <table class="table table-bordered">
+    <caption>Fingerprint Metrics</caption>
+    <thead>
+    <tr>
+      <th>Area Under Curve</th>
+      <th>X-Intercept</th>
+      <th>Elbow Point</th>
+      <th>JS Distance</th>
+      <th>% Genome Enriched</th>
+      <th>Difference in Enrichment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{sample?.auc | notAvail | number : '1.2-4'}}</td>
+      <td>{{sample?.x_intercept | notAvail | number : '1.2-4'}}</td>
+      <td>{{sample?.elbow_point | notAvail | number : '1.2-4'}}</td>
+      <td [class.warning]="sample?.js_distance < 0.1" [class.success]="sample?.js_distance > 0.15">
+        {{sample?.js_distance | notAvail | number : '1.2-4'}}
+      </td>
+      <td>{{sample?.percent_genome_enriched | notAvail | number : '1.2-4'}}</td>
+      <td>{{sample?.diff_enrichment | notAvail | number : '1.2-4'}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--
+  <div class="row">
+    <div class="col-md-6">
+      <div style="display: block">
+        <canvas baseChart [datasets]="data"
+                          [labels]="labels"
+                          [options]="options"
+                          [legend]="true"
+                          [chartType]="setting"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+  -->
+</div>
+
