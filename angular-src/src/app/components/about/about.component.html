@@ -1,0 +1,45 @@
+<div id='host-container' class="container">
+  <div class="row">
+    <p>Click on one of the following to learn more about our QC metrics:</p>
+    <div class="col-md-6">
+        <h3>ENCODE Metrics</h3>
+        <p>The <a href="https://www.encodeproject.org/">ENCODE Consortium</a> defines guidelines has established
+        some definite guidelines for evaluating ChIP-seq samples. These include the
+        <strong>PCR Bottlenecking Coefficient (PBC)</strong> and the <strong>Non-Redundant Fraction (NRF)</strong> for
+          measuring library complexity in sequencing experiments.</p>
+        <!--
+        <div class="panel panel-default">
+          <div class="panel-heading">PBC (PCR Bottleneck Coefficient 1)</div>
+          <div class="panel panel-body">
+            The PBC is a measure of library complexity, evaluating if the data is skewed
+            towards certain read locations. This is calculated by:
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <mrow></mrow>
+            </math>
+          </div>
+        </div>-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+        <h3>CWL Metrics</h3>
+        <p><a href="http://www.commonwl.org/">CWL</a> stands for <strong>Common Workflow Language</strong>,
+          which is used for specifying analysis workflows across different environments.
+          <a href="http://reddylab.org/">The Reddy Lab</a> uses a specific CWL pipeline for processing raw
+        ChIP-seq data, producing many useful QC metrics for validating samples such as <strong>Number of Reads
+            In Peaks</strong> from utilizing <a href="http://liulab.dfci.harvard.edu/MACS/">MACS peak calling software</a>
+          and <strong>Number of Mapped Reads</strong>.</p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-6">
+        <h3>Fingerprint Metrics</h3>
+        <p>The fingerprint analysis was developed by
+          <a href="http://deeptools.readthedocs.io/en/latest/index.html">deepTools</a>,
+          a bioinformatics suite developed by the Bioinformatics Facility at the Max Planck Institute for
+          Immunobiology and Epigenetics in Freiburg. The fingerprint analysis measures the <strong>
+            level of enrichment versus background noise </strong> (experimental control) since ChIP-seq experiments
+          in particular are susceptible to noise.</p>
+      </div>
+    </div>
+</div>

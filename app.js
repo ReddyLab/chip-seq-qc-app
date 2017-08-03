@@ -3,7 +3,6 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const model = require('./models/sample');
 const config = require('./config/database');
 
 mongoose.connect(config.database);
@@ -31,12 +30,13 @@ app.use(cors());
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port = 3000;
+const port = 8080;
+const host = '0.0.0.0';
 
-app.get('/', function(req, res, next) {
+app.get('/', function(req, res) {
     res.send('Server works');
 });
 
-app.listen(port, function() {
+app.listen(port, host, function() {
     console.log("Server started on port " + port);
 });

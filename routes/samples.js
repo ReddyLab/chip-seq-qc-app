@@ -56,7 +56,7 @@ router.post('/add', function(req, res, next) {
     });
 });
 
-// View samples (only names)
+// View samples
 router.get('/get_samples', cors(), function(req, res, next) {
     const input = req.query.input;
     Sample.getSampleNameByInput(input, function(err, samples) {

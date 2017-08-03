@@ -1,5 +1,7 @@
 <app-navbar id="nav"></app-navbar>
-<router-outlet [class.shifted]="searchOpen"></router-outlet>
+<div [class.shifted]="searchOpen">
+  <router-outlet></router-outlet>
+</div>
 
 
 

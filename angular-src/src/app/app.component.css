@@ -3,10 +3,7 @@
 }
 
 .shifted {
-  margin-left: 33%;
+  margin-left: 28%;
   width: 66%;
-}
-
-router-outlet {
-  padding: 10%;
+  overflow: hidden;
 }

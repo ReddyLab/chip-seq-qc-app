@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" [routerLink]="['/']">ChIP DB</a>
+      <a class="navbar-brand" [routerLink]="['/']">ChIP-DB</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,13 +16,19 @@
         <div class="form-group">
           <div class="inner-addon right-addon">
             <input id="search_box" type="text" [(ngModel)]="input" name="input"
-                   placeholder="Search" class="form-control">
+                   placeholder="Search by name" class="form-control">
             <i class="glyphicon glyphicon-search" id="search_button"></i>
           </div>
         </div>
         <input type="submit" style="display:none">
       </form>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a [routerLink]="['advanced_search']" routerLinkActive="active">Advanced Search</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['about']" routerLinkActive="active">About</a></li>
+      </ul>
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
-<app-sidebar [results]="results" [input]="input" [show]="show"></app-sidebar>
+<app-sidebar [results]="results" [input]="input"></app-sidebar>

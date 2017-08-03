@@ -20,23 +20,20 @@ export class SearchService {
       .map(res => res.json());
   }
 
+  // Retrieve one sample by name
+  retrieveSampleByName(name) {
+    let params = new URLSearchParams();
+    params.set('input', name);
+    return this.http.get('http://localhost:3000/samples/get_sample', {search: params})
+      .map(res => res.json());
+  }
+
   // Retrieve samples of the same factor name
   retrieveSamplesSameFactor(factor) {
     let params = new URLSearchParams();
     params.set('factor', factor);
     return this.http.get('http://localhost:3000/samples/chart_data', {search: params})
       .map(res => res.json());
-  }
-
-  // Send sample
-  setSample(sample) {
-    this.subject.next(sample);
-    console.log("Sample was set to" + JSON.stringify(sample));
-  }
-
-  // Get sample
-  getSample() {
-    return this.subject.asObservable();
   }
 
 }

@@ -17,10 +17,14 @@ import { KeysPipe } from './pipes/keys.pipe';
 import { DynamicComponent } from './components/dynamic/dynamic.component';
 import { LoadDirective } from './directives/load.directive';
 import { NotAvailPipe } from './pipes/not-avail.pipe';
+import { AboutComponent } from './components/about/about.component';
+import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'sample', component: SampleViewComponent}
+  {path: 'sample/:name', component: SampleViewComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'advanced_search', component: AdvancedSearchComponent}
 ];
 
 @NgModule({
@@ -33,7 +37,9 @@ const routes: Routes = [
     KeysPipe,
     DynamicComponent,
     LoadDirective,
-    NotAvailPipe
+    NotAvailPipe,
+    AboutComponent,
+    AdvancedSearchComponent
   ],
   imports: [
     BrowserModule,

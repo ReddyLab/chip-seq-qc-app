@@ -1,8 +1,10 @@
-import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Subscription } from 'rxjs/Subscription';
 
 import { SearchService } from '../../services/search.service';
+import {Subscription} from "rxjs/Subscription";
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-sample-view',
@@ -10,9 +12,9 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./sample-view.component.css']
 })
 
-export class SampleViewComponent implements OnInit {
-  @Input() sample: any;
-  subscribed : Subscription;
+export class SampleViewComponent implements OnInit, OnDestroy {
+  sample: any;
+  sub: Subscription;
   // Variables for chart data
   options: any = {
     responsive: true
@@ -25,21 +27,25 @@ export class SampleViewComponent implements OnInit {
 
 
   constructor(private searchService: SearchService,
-  private domSanitizer : DomSanitizer) {
-  }
+              private domSanitizer : DomSanitizer,
+              private route : ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.subscribed = this.searchService.getSample().subscribe(data => {
-      this.sample = data;
-      this.getArrayData();
+    this.route.params.subscribe(params => {
+      let name = params['name'];
+      this.sub = this.searchService.retrieveSampleByName(name).subscribe(data => {
+        this.sample = data.sample;
+      });
     });
     this.setting = "bar"; // Default chart type is bar
     this.param = "reads_in_peaks"; // Default data displayed is reads in peaks
   }
 
   ngOnDestroy() {
-    this.subscribed.unsubscribe();
+    this.sub.unsubscribe();
   }
+
 
   photoURL() {
     return this.domSanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+this.sample.image);

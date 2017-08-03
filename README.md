@@ -1,5 +1,5 @@
 #ChIP-DB
-A MEAN (**M**ongoDB, **E**xpressJS, **A**ngular2, **N**odeJS)nweb application that visualizes
+A MEAN (**M**ongoDB, **E**xpressJS, **A**ngular2, **N**odeJS) web application that visualizes
 and displays ChIP-seq QC metrics for assessing and validating sample quality for
 [the Reddy Lab](http://reddylab.org/).
 
@@ -15,7 +15,7 @@ project directory, use the following code from your shell:
 mongoimport -d chipseq_qc -c samples --type tsv --file <Your-Project-Repo>/chipseq_QCsummary.tsv --headerline
 ```
 
-This will initialize your database with the appropriate collections.
+This will initialize your database with the appropriate collections. You must run `mongod` in your shell
 
 ####Running the app
 First, run `npm start` (or `nodemon` if you have it) for the Express/NodeJS server. Then in a separate tab,

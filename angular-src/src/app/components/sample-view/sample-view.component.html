@@ -7,6 +7,7 @@
     <thead>
     <tr>
       <th>PBC</th>
+      <th>NRF</th>
       <th>NSC</th>
       <th>RSC</th>
     </tr>
@@ -16,8 +17,9 @@
       <td [class.warning]="sample?.pbc_one < 0.9 && sample?.pbc_one > 0.8" [class.danger]="sample?.pbc_one < 0.8">
         {{sample?.pbc_one | notAvail | number : '1.2-4'}}
       </td>
+      <td [class.warning]="sample?.percent_unique < 0.9">{{sample?.percent_unique | notAvail | number : '1.2-4'}}</td>
       <td [class.warning]="sample?.nsc < 1.1">{{sample?.nsc | notAvail | number : '1.2-4'}}</td>
-      <td [class.warning]="sample?.nsc < 0.8">{{sample?.rsc | notAvail | number : '1.2-4'}}</td>
+      <td [class.warning]="sample?.rsc < 0.8">{{sample?.rsc | notAvail | number : '1.2-4'}}</td>
     </tr>
     </tbody>
   </table>
@@ -27,7 +29,6 @@
     <tr>
       <th>Raw Reads</th>
       <th>Mapped Reads</th>
-      <th>% Unique Reads</th>
       <th>Reads in Peaks</th>
       <th>% Reads in Peaks</th>
     </tr>
@@ -36,7 +37,6 @@
     <tr>
       <td>{{sample?.reads_sequenced | notAvail }}</td>
       <td>{{sample?.reads_mapped | notAvail}}</td>
-      <td>{{sample?.percent_unique | notAvail | number: '1.2-4'}}</td>
       <td>{{sample?.reads_in_peaks | notAvail}}</td>
       <td [class.success]="sample?.percent_in_peaks > 1"[class.warning]="sample?.percent_in_peaks < 1">
       {{sample?.percent_in_peaks | notAvail | number : '1.2-4'}}
