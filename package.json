@@ -1,0 +1,22 @@
+{
+  "name": "chip-seq-qc-app",
+  "version": "1.0.0",
+  "description": "A MEAN web application that visualizes and displays ChIP-seq QC metrics for assessing and validating sample quality.  ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "cors": "^2.8.3",
+    "express": "*",
+    "mongoose": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darrylyan46/chip-seq-qc-app.git"
+  },
+  "author": "Darryl Yan",
+  "license": "ISC"
+}
