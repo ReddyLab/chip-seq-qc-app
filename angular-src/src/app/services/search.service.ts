@@ -16,7 +16,7 @@ export class SearchService {
     }
     let params = new URLSearchParams();
     params.set('input', input);
-    return this.http.get('http://localhost:3000/samples/get_samples', {search: params})
+    return this.http.get('http://' + location.hostname + ':3000/samples/get_samples', {search: params})
       .map(res => res.json());
   }
 
@@ -24,7 +24,7 @@ export class SearchService {
   retrieveSampleByName(name) {
     let params = new URLSearchParams();
     params.set('input', name);
-    return this.http.get('http://localhost:3000/samples/get_sample', {search: params})
+    return this.http.get('http://' + location.hostname + ':3000/samples/get_sample', {search: params})
       .map(res => res.json());
   }
 
@@ -32,7 +32,7 @@ export class SearchService {
   retrieveSamplesSameFactor(factor) {
     let params = new URLSearchParams();
     params.set('factor', factor);
-    return this.http.get('http://localhost:3000/samples/chart_data', {search: params})
+    return this.http.get('http://' + location.hostname + ':3000/samples/chart_data', {search: params})
       .map(res => res.json());
   }
 

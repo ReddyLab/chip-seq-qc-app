@@ -30,7 +30,7 @@ app.use(cors());
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port = 8080;
+const port = 3000;
 const host = '0.0.0.0';
 
 app.get('/', function(req, res) {
