@@ -32,7 +32,7 @@ export class SearchService {
   retrieveSamplesSameFactor(factor) {
     let params = new URLSearchParams();
     params.set('factor', factor);
-    return this.http.get('http://' + location.hostname + '3000/samples/chart_data', {search: params})
+    return this.http.get('http://' + location.hostname + ':3000/samples/chart_data', {search: params})
       .map(res => res.json());
   }
 

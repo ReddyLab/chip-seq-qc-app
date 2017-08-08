@@ -29,6 +29,7 @@ const SampleSchema = mongoose.Schema({
     broad_peaks: { type: Number },
     narrow_peaks: { type: Number },
     pbc_one: { type: Number },
+    nrf: { type: Number },
     nsc: { type: Number },
     rsc: { type: Number },
     comment: { type: String },
@@ -36,7 +37,8 @@ const SampleSchema = mongoose.Schema({
     percent_mapped_filtered: { type: Number },
     percent_reads_mapped: { type: Number },
     factor_name: { type: String },
-    image: { type: String }
+    fp_image: { type: String },
+    spp_image: { type: String }
 });
 
 const Sample = module.exports = mongoose.model('Sample', SampleSchema);

@@ -31,7 +31,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const port = 3000;
-const host = '127.0.0.1';
+const host = '0.0.0.0';
 
 app.get('/', function(req, res) {
     res.send('Server works');

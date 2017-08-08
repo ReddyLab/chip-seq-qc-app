@@ -1,14 +1,18 @@
-version: '3'
-
+version: "3"
 services:
-	angular:
-		build: angular-src
-		ports: - "4200:4200"
-	server:
-		build: .
-		ports: - "3000:8080"
-		links: - database
-	database:
-		image: mongo
-		ports: - "27017:27017"
-
+    server:
+        image: express-server
+        ports:
+         - "3000:3000"
+        depends_on:
+        - "database"
+    client:
+        image: angular-cli
+        ports:
+         - "4200:4200"
+        depends_on:
+        - "server"
+    database:
+        image: 'mongo'
+        ports:
+         - "27017:27017"
