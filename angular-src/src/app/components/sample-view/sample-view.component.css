@@ -1,3 +1,9 @@
+iframe#spp {
+  height: 450px;
+  width: 35%;
+  margin: auto;
+}
+
 .table {
   width: 30%;
   margin: 3%;

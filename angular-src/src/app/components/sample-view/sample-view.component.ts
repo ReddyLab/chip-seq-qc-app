@@ -47,9 +47,14 @@ export class SampleViewComponent implements OnInit, OnDestroy {
   }
 
 
-  photoURL() {
+  fp_photoURL() {
     return this.domSanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+this.sample.fp_image);
   }
+
+  spp_pdfURL() {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl('data:application/pdf;base64,'+this.sample.spp_image);
+  }
+
 
   graphExists() {
     return (this.sample.length > 0);
