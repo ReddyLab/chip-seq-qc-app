@@ -30,6 +30,7 @@ const SampleSchema = mongoose.Schema({
     narrow_peaks: { type: Number },
     nrf: { type: Number },
     pbc_one: { type: Number },
+    nrf: { type: Number },
     nsc: { type: Number },
     rsc: { type: Number },
     comment: { type: String },
