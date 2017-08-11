@@ -1,8 +1,3 @@
 .col-md-6 {
-  cursor: pointer;
   margin-left: 5%;
-}
-
-.col-md-6:hover {
-  background-color: lightskyblue;
 }
