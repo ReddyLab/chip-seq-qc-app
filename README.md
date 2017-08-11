@@ -1,9 +1,11 @@
 # ChIP-DB
 A MEAN (**M**ongoDB, **E**xpressJS, **A**ngular2, **N**odeJS) web application that visualizes
 and displays ChIP-seq QC metrics for assessing and validating sample quality for
-[the Reddy Lab](http://reddylab.org/).
+[the Reddy Lab](http://reddylab.org/). You can either view the deployed web application [here](http://67.159.92.22:4200/)
+or create a local version through the instructions below.
 
 ## Getting Started
+
 Clone the project repository to your local device. You will need to download and setup
 [MongoDB](https://www.mongodb.com/download-center?jmp=tutorials#enterprise).
 
@@ -27,6 +29,7 @@ First, run `npm install` in the project directory to install the appropriate dep
 * [Node.js](https://nodejs.org/en/) - A Javascript runtime.
 * [plotFingerprint](http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html) - A Python tool
 created by [deepTools](http://deeptools.readthedocs.io/en/latest/index.html) for analysis of ChIP-seq data.
+* [Docker](https://www.docker.com/) - A software container platform that makes shipping and using software easier by containerizing system libraries and dependencies.
 
 ## Author
 Darryl Yan
