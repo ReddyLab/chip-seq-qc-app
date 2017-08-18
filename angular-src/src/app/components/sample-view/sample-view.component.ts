@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { SearchService } from '../../services/search.service';
+import { AppService } from '../../services/app.service';
 import {Subscription} from "rxjs/Subscription";
 import 'rxjs/add/operator/switchMap';
 
@@ -27,6 +28,7 @@ export class SampleViewComponent implements OnInit, OnDestroy {
 
 
   constructor(private searchService: SearchService,
+              private AppService: AppService,
               private domSanitizer : DomSanitizer,
               private route : ActivatedRoute
   ) {}
@@ -73,6 +75,10 @@ export class SampleViewComponent implements OnInit, OnDestroy {
       }
       this.data = [{data : points}];
     });
+  }
+
+  getSideBarStatus() {
+    return this.AppService.getSideBarStatus();
   }
 
   // events

@@ -17,7 +17,7 @@
       <td [class.warning]="sample?.pbc_one < 0.9 && sample?.pbc_one > 0.8" [class.danger]="sample?.pbc_one < 0.8">
         {{sample?.pbc_one | numbers}}
       </td>
-      <td [class.warning]="sample?.nrf < 0.9">{{sample?.nrf | numbers}}</td>
+      <td [class.warning]="sample?.nrf < 0.9 && sample?.nrf">{{sample?.nrf | numbers}}</td>
       <td [class.warning]="sample?.nsc < 1.1">{{sample?.nsc | numbers}}</td>
       <td [class.warning]="sample?.rsc < 0.8">{{sample?.rsc | numbers}}</td>
     </tr>
@@ -38,7 +38,7 @@
       <td>{{sample?.reads_sequenced | numbers }}</td>
       <td>{{sample?.reads_mapped | numbers}}</td>
       <td>{{sample?.reads_in_peaks | numbers}}</td>
-      <td [class.success]="sample?.percent_in_peaks > 1"[class.warning]="sample?.percent_in_peaks < 1">
+      <td [class.success]="sample?.percent_in_peaks > 1" [class.warning]="sample?.percent_in_peaks < 1">
       {{sample?.percent_in_peaks | numbers}}
       </td>
     </tr>

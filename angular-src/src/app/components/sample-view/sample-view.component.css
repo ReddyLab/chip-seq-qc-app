@@ -1,23 +1,26 @@
+
 iframe#spp {
   height: 450px;
   width: 35%;
   margin: auto;
+  float: left;
 }
 
 .table {
-  width: 30%;
+  width: 25%;
   margin: 3%;
   float: left;
 }
 
 #graph {
-  height: 35%;
-  width: 35%;
+  height: 30%;
+  width: 30%;
   margin: auto;
+  float: left;
 }
 
 :host-context(router-outlet .shifted) /deep/ .page-header {
-  margin-left: 33%;
+  margin-left: 28%;
   margin-bottom: 0;
   width: 66%;
 }
