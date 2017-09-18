@@ -6,6 +6,7 @@ import {Subject} from "rxjs/Subject";
 @Injectable()
 export class SearchService {
   private subject = new Subject<any>();
+  private num = new Subject<Number>();
 
   constructor(private http: Http) { }
 
@@ -14,6 +15,7 @@ export class SearchService {
     if(input.length == 0) {
       return;
     }
+
     let params = new URLSearchParams();
     params.set('input', input);
     return this.http.get('http://' + location.hostname + ':3000/samples/get_samples', {search: params})

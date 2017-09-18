@@ -48,7 +48,6 @@ export class SampleViewComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-
   fp_photoURL() {
     return this.domSanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+this.sample.fp_image);
   }
@@ -57,10 +56,6 @@ export class SampleViewComponent implements OnInit, OnDestroy {
     return this.domSanitizer.bypassSecurityTrustResourceUrl('data:application/pdf;base64,'+this.sample.spp_image);
   }
 
-
-  graphExists() {
-    return (this.sample.length > 0);
-  }
 
   getArrayData() {
     this.searchService.retrieveSamplesSameFactor(this.sample.factor_name).subscribe(data => {

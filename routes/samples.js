@@ -56,6 +56,16 @@ router.post('/add', function(req, res, next) {
     });
 });
 
+// Get number of samples
+router.get('/get_number', cors(), function(req, res) {
+    Sample.getNumberOfSamples(function(err, count) {
+        if(err) {
+            throw err;
+        }
+        return res.json({count: count});
+    });
+});
+
 // View samples
 router.get('/get_samples', cors(), function(req, res, next) {
     const input = req.query.input;

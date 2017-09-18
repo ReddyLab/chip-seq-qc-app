@@ -12,7 +12,7 @@ import { AppService } from '../../services/app.service';
 })
 export class SidebarComponent implements OnInit {
   @Input() input: string;
-  @Input() results: Array<Object> = [];
+  @Input() results: Array<string> = [];
   selectedSample: Object;
   subscribed: Subscription;
   show: boolean;

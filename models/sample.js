@@ -55,9 +55,9 @@ module.exports.getSampleByName = function(name, callback) {
     Sample.findOne(query, callback);
 };
 
-// Fetch Sample by Regex (samples that contain pattern)
+// Fetch Sample by Regex (samples that contain pattern), implements pagination
 module.exports.getSampleNameByInput = function(input, callback) {
-    Sample.find({sample: {$regex: String(input), $options: "i"}}, callback);
+    Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", callback);
 };
 
 // Fetch Sample by Factor Name
