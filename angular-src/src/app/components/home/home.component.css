@@ -1,0 +1,16 @@
+
+.home_body {
+  padding: 6%;
+}
+
+.center_align {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.bottom_align {
+  display: inline-block;
+  vertical-align: bottom;
+  float: none;
+}

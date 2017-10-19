@@ -1,23 +1,20 @@
-<div *ngIf="!sample" class="jumbotron text-center">
-  <h1>ChIP-DB</h1>
-  <p>The Reddy Lab's database for ChIP-seq data and QC's</p>
-</div>
+<div class="container-fluid home_body">
 <div class="row">
-  <div class="col-md-6">
-    <h3>
-      Validate Your Samples
-    </h3>
-    <p>Enter your sample above. Search for previous ChIP-seq experiments for comparison and validation.</p>
-  </div>
-  <div class="col-md-6">
-    <h3>
-      Additional QC Data
-    </h3>
-    <p>The app includes added "fingerprint" data from
-      <a href="http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html">deepTools</a>,
-      a suite of QC tools for validating your ChIP experiments. Fingerprint data indicates how well a sample was
-      enriched from antibody-treatment via graphs and unique QC metrics.
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <h1 style="font-size: 500%">
+      Welcome to ChIP DB
+    </h1>
+    <p class="lead" style="font-size: 200%">
+      The Reddy Lab's database for ChIP-seq quality control and validation
+    </p>
+    <br>
+    <p class="lead" style="font-size: 200%">
+      Click the search bar and type "GR" to begin viewing samples.
     </p>
   </div>
+  <div class="col-sm-8 col-md-8 col-lg-8">
+    <img class="img-responsive" src="../../../assets/ChIP_DB_Page_Art.png"/>
+  </div>
+</div>
 </div>
 

@@ -1,24 +1,38 @@
-/* enable absolute positioning */
-.inner-addon {
-  position: relative;
-}
-
-/* style icon */
-.inner-addon .glyphicon {
-  position: absolute;
-  padding: 6%;
-  pointer-events: none;
-}
-
-/* align icon */
-.left-addon .glyphicon  { left:  0;}
-.right-addon .glyphicon { right: 0;}
-
-/* add padding  */
-.left-addon input  { padding-left:  15%; }
-.right-addon input { padding-right: 15%; }
 
 .navbar-default {
-  margin: 0;
+  padding-left: 3%;
+  padding-right: 3%;
+  max-height: 120%;
+  margin-bottom: 0px;
 }
 
+.navbar-form .navbar-left {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-collapse {
+  max-height: 120%;
+}
+
+
+.navbar-brand {
+  height: 100%;
+  width: auto;
+}
+
+#search_box {
+  height: 40px;
+}
+
+.li {
+  margin: 15px;
+}
+
+.nav .nav-pills {
+  margin-top: 5px;
+}
+
+a {
+  font-size: large;
+}

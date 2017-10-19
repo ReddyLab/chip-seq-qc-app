@@ -5,67 +5,6 @@ const config = require('../config/database');
 
 const Sample = require('../models/sample');
 
-// Add sample (Method: POST)
-router.post('/add', function(req, res, next) {
-    let newSample = new Sample({
-        name: req.body.name,
-        auc: req.body.auc,
-        synthetic_auc: req.body.synthetic_auc,
-        x_intercept: req.body.x_intercept,
-        synthetic_x_intercept: req.body.synthetic_x_intercept,
-        elbow_point: req.body.elbow_point,
-        synthetic_elbow_point: req.body.synthetic_elbow_point,
-        js_distance: req.body.js_distance,
-        synthetic_js_distance: req.body.synthetic_js_distance,
-        percent_genome_enriched: req.body.percent_genome_enriched,
-        diff_enrichment: req.body.diff_enrichment,
-        chance_divergence: req.body.chance_divergence,
-        reads_sequenced: req.body.reads_sequenced,
-        reads_after_trimming: req.body.reads_after_trimming,
-        reads_mapped: req.body.reads_after_trimming,
-        percent_unique: req.body.percent_unique,
-        reads_mapped_filtered: req.body.reads_mapped_filtered,
-        percent_unique_mapped_filtered: req.percent_unique_mapped_filtered,
-        reads_in_peaks: req.body.reads_in_peaks,
-        percent_in_peaks: req.body.percent_in_peaks,
-        broad_peaks: req.body.broad_peaks,
-        narrow_peaks: req.body.narrow_peaks,
-        pbc_one: req.body.pbc_one,
-        nsc: req.body.nsc,
-        rsc: req.body.rsc,
-        comment: req.body.comment,
-        peaks: req.body.peaks,
-        percent_mapped_filtered: req.body.percent_mapped_filtered,
-        percent_reads_mapped: req.body.percent_reads_mapped,
-        factor_name: req.body.factor_name,
-        image: req.body.image
-    });
-
-    Sample.addSample(newSample, function(err, sample) {
-        if(err) {
-            res.json({
-                success: false,
-                msg: "Failed to add sample"
-            });
-        } else {
-            res.json({
-                success: true,
-                msg: "Sample added"
-            })
-        }
-    });
-});
-
-// Get number of samples
-router.get('/get_number', cors(), function(req, res) {
-    Sample.getNumberOfSamples(function(err, count) {
-        if(err) {
-            throw err;
-        }
-        return res.json({count: count});
-    });
-});
-
 // View samples
 router.get('/get_samples', cors(), function(req, res, next) {
     const input = req.query.input;

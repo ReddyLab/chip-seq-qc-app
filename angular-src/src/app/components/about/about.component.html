@@ -1,8 +1,8 @@
 <div id='host-container' class="container">
   <div class="row-fluid">
-    <div class="col-md-6">
-        <h3>ENCODE Metrics</h3>
-        <p>The <a href="https://www.encodeproject.org/">ENCODE Consortium</a> defines guidelines has established
+    <div class="col-md-4">
+        <h1>ENCODE Metrics</h1>
+        <p class="lead">The <a href="https://www.encodeproject.org/">ENCODE Consortium</a> defines guidelines has established
         some definite guidelines for evaluating ChIP-seq samples. These include the
         <strong>PCR Bottlenecking Coefficient (PBC)</strong> and the <strong>Non-Redundant Fraction (NRF)</strong> for
           measuring library complexity in sequencing experiments.</p>
@@ -18,27 +18,37 @@
           </div>
         </div>-->
     </div>
-  </div>
-  <div class="row-fluid">
-    <div class="col-md-6">
-        <h3>CWL Metrics</h3>
-        <p><a href="http://www.commonwl.org/">CWL</a> stands for <strong>Common Workflow Language</strong>,
-          which is used for specifying analysis workflows across different environments.
-          <a href="http://reddylab.org/">The Reddy Lab</a> uses a specific CWL pipeline for processing raw
+    <div class="col-md-4">
+      <h1>CWL Metrics</h1>
+      <p class="lead"><a href="http://www.commonwl.org/">CWL</a> stands for <strong>Common Workflow Language</strong>,
+        which is used for specifying analysis workflows across different environments.
+        <a href="http://reddylab.org/">The Reddy Lab</a> uses a specific CWL pipeline for processing raw
         ChIP-seq data, producing many useful QC metrics for validating samples such as <strong>Number of Reads
-            In Peaks</strong> from utilizing <a href="http://liulab.dfci.harvard.edu/MACS/">MACS peak calling software</a>
-          and <strong>Number of Mapped Reads</strong>.</p>
+          In Peaks</strong> from utilizing <a href="http://liulab.dfci.harvard.edu/MACS/">MACS peak calling software</a>
+        and <strong>Number of Mapped Reads</strong>.</p>
+    </div>
+    <div class="col-md-4">
+      <h1>Fingerprint Metrics</h1>
+      <p class="lead">The fingerprint analysis was developed by
+        <a href="http://deeptools.readthedocs.io/en/latest/index.html">deepTools</a>,
+        a bioinformatics suite developed by the Bioinformatics Facility at the Max Planck Institute for
+        Immunobiology and Epigenetics in Freiburg. The fingerprint analysis measures the <strong>
+          level of enrichment versus background noise </strong> (experimental control) since ChIP-seq experiments
+        in particular are susceptible to noise.</p>
     </div>
   </div>
   <div class="row-fluid">
-      <div class="col-md-6">
-        <h3>Fingerprint Metrics</h3>
-        <p>The fingerprint analysis was developed by
-          <a href="http://deeptools.readthedocs.io/en/latest/index.html">deepTools</a>,
-          a bioinformatics suite developed by the Bioinformatics Facility at the Max Planck Institute for
-          Immunobiology and Epigenetics in Freiburg. The fingerprint analysis measures the <strong>
-            level of enrichment versus background noise </strong> (experimental control) since ChIP-seq experiments
-          in particular are susceptible to noise.</p>
-      </div>
+    <div class="col-md-4">
+      <img class="img-responsive"
+           src="https://www.broadinstitute.org/files/styles/blog__557x415_/public/news/images/2012/ENCODE_logo_NHGRI.JPG?itok=Nn5rNnZm">
     </div>
+    <div class="col-md-4">
+      <img class="img-responsive" src="https://view.commonwl.org/img/CWL-Logo-nofonts.svg">
+    </div>
+    <div class="col-md-4">
+      <img class="img-responsive"
+           src="http://deeptools.readthedocs.io/en/latest/_images/QC_fingerprint.png"
+           style="vertical-align: bottom">
+    </div>
+  </div>
 </div>
