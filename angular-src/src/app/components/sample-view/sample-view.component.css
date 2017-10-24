@@ -1,34 +1,32 @@
-
+div {
+  margin: 2%;
+}
 iframe#spp {
-  height: 450px;
+  height: 425px;
   width: 35%;
-  margin: auto;
+  align-content: center;
   float: left;
 }
 
 .table {
   width: 25%;
-  margin: 3%;
   float: left;
 }
 
 #graph {
   height: 30%;
   width: 30%;
-  margin: auto;
-  float: left;
 }
 
-:host-context(router-outlet .shifted) /deep/ .page-header {
-  margin-left: 28%;
-  margin-bottom: 0;
-  width: 66%;
+
+.warning-color {
+  background-color: #FFFFCC;
 }
 
-.warning {
-  background-color: orange;
+.danger-color {
+  background-color: #FFCCCC;
 }
 
-.danger {
-  background-color: lightcoral;
+.success-color {
+  background-color: #D0F0C0;
 }

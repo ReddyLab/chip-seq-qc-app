@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -15,10 +16,10 @@ import { SearchService } from './services/search.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SampleViewComponent } from './components/sample-view/sample-view.component';
 import { KeysPipe } from './pipes/keys.pipe';
-import { DynamicComponent } from './components/dynamic/dynamic.component';
 import { LoadDirective } from './directives/load.directive';
 import { AboutComponent } from './components/about/about.component';
 import { NumbersPipe } from './pipes/numbers.pipe';
+import { FingerprintComponent } from './components/fingerprint/fingerprint.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,17 +35,18 @@ const routes: Routes = [
     SidebarComponent,
     SampleViewComponent,
     KeysPipe,
-    DynamicComponent,
     LoadDirective,
     AboutComponent,
-    NumbersPipe
+    NumbersPipe,
+    FingerprintComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [SearchService, AppService],
   bootstrap: [AppComponent]

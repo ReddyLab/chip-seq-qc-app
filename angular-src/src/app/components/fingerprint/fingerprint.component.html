@@ -1,0 +1,27 @@
+<img id="graph" [src]="fp_photoURL()"/>
+
+<table class="table table-bordered">
+  <caption>Fingerprint Metrics</caption>
+  <thead>
+  <tr>
+    <th>Area Under Curve</th>
+    <th>X-Intercept</th>
+    <th>Elbow Point</th>
+    <th>JS Distance</th>
+    <th>% Genome Enriched</th>
+    <th>Difference in Enrichment</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{sample?.auc | numbers}}</td>
+    <td>{{sample?.x_intercept | numbers}}</td>
+    <td>{{sample?.elbow_point | numbers}}</td>
+    <td [class.warning-color]="sample?.js_distance < 0.1" [class.success-color]="sample?.js_distance > 0.15">
+      {{sample?.js_distance | numbers}}
+    </td>
+    <td>{{sample?.percent_genome_enriched | numbers}}</td>
+    <td>{{sample?.diff_enrichment | numbers}}</td>
+  </tr>
+  </tbody>
+</table>

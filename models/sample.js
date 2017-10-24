@@ -7,6 +7,9 @@ const SampleSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    date_created: {
+        type: Date
+    },
     auc: { type: Number },
     synthetic_auc: { type: Number },
     x_intercept: { type: Number },
@@ -28,7 +31,6 @@ const SampleSchema = mongoose.Schema({
     percent_in_peaks: { type: Number },
     broad_peaks: { type: Number },
     narrow_peaks: { type: Number },
-    nrf: { type: Number },
     pbc_one: { type: Number },
     nrf: { type: Number },
     nsc: { type: Number },
@@ -39,7 +41,10 @@ const SampleSchema = mongoose.Schema({
     percent_reads_mapped: { type: Number },
     factor_name: { type: String },
     fp_image: { type: String },
-    spp_image: { type: String }
+    spp_image: { type: String },
+    ip_control: { type: String },
+    input_control: { type: String },
+    flowcell: { type: String }
 });
 
 const Sample = module.exports = mongoose.model('Sample', SampleSchema);
@@ -55,9 +60,15 @@ module.exports.getSampleByName = function(name, callback) {
     Sample.findOne(query, callback);
 };
 
+// Fetch number of samples
+module.exports.getSampleByInputCount = function(input, callback) {
+    Sample.count({sample: {$regex: String(input), $options: "i"}}, callback);
+};
+
 // Fetch Sample by Regex (samples that contain pattern), implements pagination
-module.exports.getSampleNameByInput = function(input, callback) {
-    Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", callback);
+module.exports.getSampleNameByInput = function(input, num, callback) {
+    // Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", callback);
+    Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", { skip: 6 * (num-1), limit: 6}, callback);
 };
 
 // Fetch Sample by Factor Name

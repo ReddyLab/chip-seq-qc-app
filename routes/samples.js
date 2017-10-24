@@ -8,16 +8,24 @@ const Sample = require('../models/sample');
 // View samples
 router.get('/get_samples', cors(), function(req, res, next) {
     const input = req.query.input;
-    Sample.getSampleNameByInput(input, function(err, samples) {
+    const page_num = req.query.page;
+    Sample.getSampleByInputCount(input, function(err, count) {
         if(err) {
             throw err;
-        }
-        if(!samples) {
-            return res.json({success: false, msg: 'No samples found'});
         } else {
-            return res.json({success: true, msg: "Samples found", samples: samples});
+            Sample.getSampleNameByInput(input, page_num, function(err, samples) {
+                if(err) {
+                    throw err;
+                }
+                if(!samples) {
+                    return res.json({success: false});
+                } else {
+                    return res.json({success: true, page_num: page_num, samples: samples, total_length: count});
+                }
+            });
         }
     });
+
 });
 
 // View single sample (entire sample)

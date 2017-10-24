@@ -1,79 +1,59 @@
 <div class="page-header">
   <h2>{{sample?.sample}}</h2>
 </div>
-<div id="data" class="container" *ngIf="sample">
-  <table class="table table-bordered">
-    <caption>ENCODE Metrics</caption>
-    <thead>
-    <tr>
-      <th>PBC</th>
-      <th>NRF</th>
-      <th>NSC</th>
-      <th>RSC</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td [class.warning]="sample?.pbc_one < 0.9 && sample?.pbc_one > 0.8" [class.danger]="sample?.pbc_one < 0.8">
-        {{sample?.pbc_one | numbers}}
-      </td>
-      <td [class.warning]="sample?.nrf < 0.9 && sample?.nrf">{{sample?.nrf | numbers}}</td>
-      <td [class.warning]="sample?.nsc < 1.1">{{sample?.nsc | numbers}}</td>
-      <td [class.warning]="sample?.rsc < 0.8">{{sample?.rsc | numbers}}</td>
-    </tr>
-    </tbody>
-  </table>
-  <table class="table table-bordered">
-    <caption>CWL Metrics</caption>
-    <thead>
-    <tr>
-      <th>Raw Reads</th>
-      <th>Mapped Reads</th>
-      <th>Reads in Peaks</th>
-      <th>% Reads in Peaks</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>{{sample?.reads_sequenced | numbers }}</td>
-      <td>{{sample?.reads_mapped | numbers}}</td>
-      <td>{{sample?.reads_in_peaks | numbers}}</td>
-      <td [class.success]="sample?.percent_in_peaks > 1" [class.warning]="sample?.percent_in_peaks < 1">
-      {{sample?.percent_in_peaks | numbers}}
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<div id="data" class="container-fluid" *ngIf="sample" [@enterSample]>
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-bordered">
+        <caption>ENCODE Metrics</caption>
+        <thead>
+        <tr>
+          <th>PBC</th>
+          <th>NRF</th>
+          <th>NSC</th>
+          <th>RSC</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td [class.warning-color]="sample?.pbc_one < 0.9 && sample?.pbc_one > 0.8"
+              [class.danger-color]="sample?.pbc_one < 0.8">
+            {{sample?.pbc_one | numbers}}
+          </td>
+          <td [class.warning-color]="sample?.nrf < 0.9 && sample?.nrf">{{sample?.nrf | numbers}}</td>
+          <td [class.warning-color]="sample?.nsc < 1.1">{{sample?.nsc | numbers}}</td>
+          <td [class.warning-color]="sample?.rsc < 0.8">{{sample?.rsc | numbers}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  <div class="col-md-4">
+    <table class="table table-bordered">
+      <caption>CWL Metrics</caption>
+      <thead>
+      <tr>
+        <th>Raw Reads</th>
+        <th>Mapped Reads</th>
+        <th>Reads in Peaks</th>
+        <th>% Reads in Peaks</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{sample?.reads_sequenced | numbers }}</td>
+        <td>{{sample?.reads_mapped | numbers}}</td>
+        <td>{{sample?.reads_in_peaks | numbers}}</td>
+        <td [class.success-color]="sample?.percent_in_peaks > 1" [class.warning-color]="sample?.percent_in_peaks < 1">
+          {{sample?.percent_in_peaks | numbers}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <img id="graph" [src]="fp_photoURL()"/>
+    <iframe id="spp" [src]="spp_pdfURL()"></iframe>
 
-  <table class="table table-bordered">
-    <caption>Fingerprint Metrics</caption>
-    <thead>
-    <tr>
-      <th>Area Under Curve</th>
-      <th>X-Intercept</th>
-      <th>Elbow Point</th>
-      <th>JS Distance</th>
-      <th>% Genome Enriched</th>
-      <th>Difference in Enrichment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>{{sample?.auc | numbers}}</td>
-      <td>{{sample?.x_intercept | numbers}}</td>
-      <td>{{sample?.elbow_point | numbers}}</td>
-      <td [class.warning]="sample?.js_distance < 0.1" [class.success]="sample?.js_distance > 0.15">
-        {{sample?.js_distance | numbers}}
-      </td>
-      <td>{{sample?.percent_genome_enriched | numbers}}</td>
-      <td>{{sample?.diff_enrichment | numbers}}</td>
-    </tr>
-    </tbody>
-  </table>
 
-  <iframe id="spp" [src]="spp_pdfURL()"></iframe>
 
 
 

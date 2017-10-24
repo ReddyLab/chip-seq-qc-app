@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SearchService } from '../../services/search.service';
 import { AppService } from '../../services/app.service';
@@ -12,9 +13,11 @@ import { AppService } from '../../services/app.service';
 export class NavbarComponent implements OnInit {
   input: String;
   results: Array<Object>;
+  count: number;
 
   constructor(private searchService: SearchService,
-              private appService : AppService) { }
+              private appService : AppService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,14 +26,16 @@ export class NavbarComponent implements OnInit {
   onSearchSubmit(): void {
     // Show view
     this.appService.sideBarOpen();
-    this.searchService.retrieveSamples(this.input).subscribe(data => {
+    // Default start on first page
+    this.searchService.retrieveSamples(this.input, 1).subscribe(data => {
       if(data.success) {
         this.results = data.samples;
+        this.count = data.total_length;
       }
       else {
         console.log('Query failed');
       }
-    })
+    });
   }
 
 }

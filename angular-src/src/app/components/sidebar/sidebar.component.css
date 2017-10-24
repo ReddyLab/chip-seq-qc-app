@@ -1,14 +1,55 @@
 #sidenav {
   margin: 0;
   height: 100%;
-  width: 25%;
+  width: 28%;
   position: relative;
   top: 0;
   left: 0;
   padding: 0;
-  background-color: #888; /* Black*/
+  background-color: #989898; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.search_results_top {
+  padding: 1.5%;
+}
+
+.search-results {
+}
+
+.paginated {
+  margin-top: 0%;
+  list-style-type: none;
+  background-color: #D3D3D3;
+}
+
+.page_num {
+  margin-left: 4%;
+  margin-right: 4%;
+  display: inline;
+  cursor: pointer;
+}
+
+.page_num:hover {
+  text-decoration: underline;
+}
+
+.glyphicon {
+  font-size: smaller;
+  cursor: pointer;
+}
+
+.curr_page_num {
+  font-weight: bold;
+}
+
+
+span {
+  cursor: pointer;
+  font-size: smaller;
+  vertical-align: middle;
+  float: right;
+  margin-top: 0.7%;
 }
 
 button {

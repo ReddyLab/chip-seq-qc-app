@@ -1,6 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { trigger,
+  state,
+  style,
+  animate,
+  transition } from '@angular/animations';
 
 import { SearchService } from '../../services/search.service';
 import { AppService } from '../../services/app.service';
@@ -10,7 +15,14 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-sample-view',
   templateUrl: './sample-view.component.html',
-  styleUrls: ['./sample-view.component.css']
+  styleUrls: ['./sample-view.component.css'],
+  animations: [
+    trigger('enterSample', [
+      transition('* => *', [
+        style({ opacity: 0 }),
+        animate('300ms', style({ opacity: 1 }))
+      ])
+  ])]
 })
 
 export class SampleViewComponent implements OnInit, OnDestroy {
