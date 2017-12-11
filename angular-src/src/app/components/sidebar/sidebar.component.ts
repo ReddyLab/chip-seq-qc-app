@@ -78,6 +78,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
     })
   }
 
+  upperPageNumber(): number {
+    if(this.page*6 > this.count) {
+      return this.count;
+    }
+    return this.page*6;
+  }
+
   pageNumberNext(): void {
     this.pageNumberOnClick(this.page+1);
   }
@@ -89,7 +96,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   pageNumbers(): any {
     let page_nums = [];
     let curr_index = this.page - 2;
-    while (page_nums.length < 5 && curr_index * 6 < this.count) {
+    while (page_nums.length < 5 && curr_index * 6 < this.count + 5) {
       if (curr_index > 0) {
         page_nums.push(curr_index);
       }

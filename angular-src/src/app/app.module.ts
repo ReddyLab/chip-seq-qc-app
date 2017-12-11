@@ -19,7 +19,6 @@ import { KeysPipe } from './pipes/keys.pipe';
 import { LoadDirective } from './directives/load.directive';
 import { AboutComponent } from './components/about/about.component';
 import { NumbersPipe } from './pipes/numbers.pipe';
-import { FingerprintComponent } from './components/fingerprint/fingerprint.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -37,8 +36,7 @@ const routes: Routes = [
     KeysPipe,
     LoadDirective,
     AboutComponent,
-    NumbersPipe,
-    FingerprintComponent
+    NumbersPipe
   ],
   imports: [
     BrowserModule,

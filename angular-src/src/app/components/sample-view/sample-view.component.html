@@ -1,9 +1,10 @@
 <div class="page-header">
   <h2>{{sample?.sample}}</h2>
+  <p>{{sample?.timestamp}} | {{sample?.flowcell}}</p>
 </div>
 <div id="data" class="container-fluid" *ngIf="sample" [@enterSample]>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 col-md-offset-2">
       <table class="table table-bordered">
         <caption>ENCODE Metrics</caption>
         <thead>
@@ -35,6 +36,8 @@
         <th>Raw Reads</th>
         <th>Mapped Reads</th>
         <th>Reads in Peaks</th>
+        <th *ngIf="sample.broad_peak_count">Broad Peaks</th>
+        <th *ngIf="sample.narrow_peak_count">Narrow Peaks</th>
         <th>% Reads in Peaks</th>
       </tr>
       </thead>
@@ -43,6 +46,8 @@
         <td>{{sample?.reads_sequenced | numbers }}</td>
         <td>{{sample?.reads_mapped | numbers}}</td>
         <td>{{sample?.reads_in_peaks | numbers}}</td>
+        <td *ngIf="sample.broad_peak_count">{{sample?.broad_peak_count | numbers}}</td>
+        <td *ngIf="sample.narrow_peak_count">{{sample?.narrow_peak_count | numbers}}</td>
         <td [class.success-color]="sample?.percent_in_peaks > 1" [class.warning-color]="sample?.percent_in_peaks < 1">
           {{sample?.percent_in_peaks | numbers}}
         </td>
@@ -50,27 +55,39 @@
       </tbody>
     </table>
   </div>
-
-    <iframe id="spp" [src]="spp_pdfURL()"></iframe>
-
-
-
-
-
-  <!--
-  <div class="row">
-    <div class="col-md-6">
-      <div style="display: block">
-        <canvas baseChart [datasets]="data"
-                          [labels]="labels"
-                          [options]="options"
-                          [legend]="true"
-                          [chartType]="setting"
-                          (chartHover)="chartHovered($event)"
-                          (chartClick)="chartClicked($event)"></canvas>
-      </div>
-    </div>
+    <iframe id="spp" [src]="load_pdf()"></iframe>
   </div>
-  -->
 </div>
 
+<div class="container-fluid" *ngIf="false" [@enterSample]>
+  <img id="graph" [src]="fp_photoURL()"/>
+
+  <table class="table table-bordered">
+    <caption>Fingerprint Metrics</caption>
+    <thead>
+    <tr>
+      <th>Area Under Curve</th>
+      <th>X-Intercept</th>
+      <th>Elbow Point</th>
+      <th>JS Distance</th>
+      <th>% Genome Enriched</th>
+      <th>Difference in Enrichment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{sample?.auc | numbers}}</td>
+      <td>{{sample?.x_intercept | numbers}}</td>
+      <td>{{sample?.elbow_point | numbers}}</td>
+      <td [class.warning-color]="sample?.js_distance < 0.1" [class.success-color]="sample?.js_distance > 0.15">
+        {{sample?.js_distance | numbers}}
+      </td>
+      <td>{{sample?.percent_genome_enriched | numbers}}</td>
+      <td>{{sample?.diff_enrichment | numbers}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<li class="slide-menu">
+
+</li>

@@ -29,8 +29,8 @@ const SampleSchema = mongoose.Schema({
     percent_unique_mapped_filtered: { type: Number },
     reads_in_peaks: { type: Number },
     percent_in_peaks: { type: Number },
-    broad_peaks: { type: Number },
-    narrow_peaks: { type: Number },
+    broad_peak_count: { type: Number },
+    narrow_peak_count: { type: Number },
     pbc_one: { type: Number },
     nrf: { type: Number },
     nsc: { type: Number },
@@ -68,7 +68,8 @@ module.exports.getSampleByInputCount = function(input, callback) {
 // Fetch Sample by Regex (samples that contain pattern), implements pagination
 module.exports.getSampleNameByInput = function(input, num, callback) {
     // Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", callback);
-    Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", { skip: 6 * (num-1), limit: 6}, callback);
+    Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", { skip: 6 * (num-1), limit: 6}, callback)
+        .sort({ "timestamp": -1});
 };
 
 // Fetch Sample by Factor Name

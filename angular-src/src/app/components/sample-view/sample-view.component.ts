@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { trigger,
@@ -11,6 +11,8 @@ import { SearchService } from '../../services/search.service';
 import { AppService } from '../../services/app.service';
 import {Subscription} from "rxjs/Subscription";
 import 'rxjs/add/operator/switchMap';
+import * as PDFJS from "pdfjs-dist/build/pdf.js";
+
 
 @Component({
   selector: 'app-sample-view',
@@ -38,7 +40,6 @@ export class SampleViewComponent implements OnInit, OnDestroy {
   labels: Array<any>;
 
 
-
   constructor(private searchService: SearchService,
               private AppService: AppService,
               private domSanitizer : DomSanitizer,
@@ -64,7 +65,7 @@ export class SampleViewComponent implements OnInit, OnDestroy {
     return this.domSanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+this.sample.fp_image);
   }
 
-  spp_pdfURL() {
+  load_pdf() {
     return this.domSanitizer.bypassSecurityTrustResourceUrl('data:application/pdf;base64,'+this.sample.spp_image);
   }
 

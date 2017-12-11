@@ -11,7 +11,8 @@
     "body-parser": "*",
     "cors": "^2.8.3",
     "express": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "pdfjs-dist-for-node": "^1.0.892-rc.1"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
-<div class="pull-left clearfix" id="sidenav" *ngIf="show" [@sidebarState]>
+<div class="pull-left" id="sidenav" *ngIf="show" [@sidebarState]>
   <div *ngIf="count > 0" class="search_results_top">
-    <em style="margin-left: 1%">Displaying {{(page*6)-6 + 1}} to {{page*6}} out of {{count}}</em>
+    <em style="margin-left: 1%">Displaying {{(page*6)-6 + 1}} to {{upperPageNumber()}} out of {{count}}</em>
     <span class="glyphicon glyphicon-remove" (click)="onClose()"></span>
   </div>
   <div *ngIf="count === 0" class="search_results_top">
@@ -8,12 +8,12 @@
   </div>
   <div class="search-results">
     <ul class="list-group" style="list-style-type: none">
-      <button type="button" class="list-group-item" *ngFor="let result of results"
+      <li type="button" class="list-group-item" *ngFor="let result of results"
+              (click) = "selectedSample = result"
               [class.selected]="result === selectedSample"
               [routerLink]="['/sample', result.sample]"
               [innerHtml]="regexBold(result.sample)">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </button>
+      </li>
       <ul class="paginated">
         <li *ngIf="results && page > 1" class="glyphicon glyphicon-chevron-left" (click)="pageNumberPrev()"></li>
         <li *ngFor="let num of pageNumbers()" (click)="pageNumberOnClick(num)"

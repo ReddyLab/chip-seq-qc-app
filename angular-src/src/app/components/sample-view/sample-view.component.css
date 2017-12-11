@@ -8,6 +8,11 @@ iframe#spp {
   float: left;
 }
 
+.row {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .table {
   width: 25%;
   float: left;
@@ -30,3 +35,11 @@ iframe#spp {
 .success-color {
   background-color: #D0F0C0;
 }
+
+.slide-menu {
+  list-style-type: none;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+

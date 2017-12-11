@@ -1,8 +1,8 @@
-#main {
-  position: relative;
-}
-
 .shifted {
   margin-left: 33%;
   width: 63%;
+}
+
+#main {
+  position: relative;
 }
