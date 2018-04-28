@@ -58,4 +58,15 @@ router.get('/chart_data', cors(), function(req, res, next) {
     });
 });
 
+// Get ten samples asynchronously from input string
+router.get('/async_search', cors(), function(req, res) {
+    const inputString = req.query.input;
+    Sample.getMostRecentSamplesByInput(inputString, function(err, samples) {
+        if (err) {
+            throw err;
+        }
+        return res.json({samples: samples});
+    })
+});
+
 module.exports = router;

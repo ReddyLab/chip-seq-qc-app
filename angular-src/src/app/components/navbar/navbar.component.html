@@ -12,12 +12,26 @@
       </button>
     </div>
     <br>
-    <form class="navbar-form navbar-left" role="search" (submit)="onSearchSubmit()">
+    <form #search_form class="navbar-form navbar-left" role="search" (submit)="onSearchSubmit()">
       <div class="form-group">
-        <input id="search_box" type="text" [(ngModel)]="input" name="input"
-               placeholder="Search by name" class="form-control" style="width: 500px;">
+        <input id="search_box" type="text"
+               [(ngModel)]="input"
+               (keyup)="onSearchInput()"
+               name="input"
+               placeholder="Search by name"
+               autocomplete="off"
+               class="form-control" style="width: 500px;">
           <i class="glyphicon glyphicon-search" style="vertical-align: middle; margin-left: -35px;
           font-size: 20px"></i>
+      </div>
+      <div class="dropdown"
+           *ngIf="clickedInside && this.input">
+        <div class="search-box-item"
+             *ngFor="let result of asyncResults; let i = index"
+             [innerHTML]="regexBold(result.sample)"
+             [class.last]="i == asyncResults.length - 1"
+             (click)="onSampleNameClick(result.sample)">
+        </div>
       </div>
     </form>
     <!-- Collect the nav links, forms, and other content for toggling -->

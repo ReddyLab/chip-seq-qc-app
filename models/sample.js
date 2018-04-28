@@ -8,7 +8,8 @@ const SampleSchema = mongoose.Schema({
         required: true
     },
     date_created: {
-        type: Date
+        type: Date,
+        default: Date.now()
     },
     auc: { type: Number },
     synthetic_auc: { type: Number },
@@ -69,8 +70,15 @@ module.exports.getSampleByInputCount = function(input, callback) {
 module.exports.getSampleNameByInput = function(input, num, callback) {
     // Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", callback);
     Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", { skip: 6 * (num-1), limit: 6}, callback)
-        .sort({ "timestamp": -1});
+        .sort({ '_id': -1});
 };
+
+// Fetch Sample by Regex, limited to 10 most recent samples
+module.exports.getMostRecentSamplesByInput = function(input, callback) {
+    Sample.find({sample: {$regex: String(input), $options: "i"}}, "sample", {limit: 10}, callback)
+        .sort({ '_id': -1});
+};
+
 
 // Fetch Sample by Factor Name
 module.exports.getSampleByFactor = function(factor, callback) {

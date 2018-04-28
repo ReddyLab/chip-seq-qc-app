@@ -14,14 +14,21 @@
               [routerLink]="['/sample', result.sample]"
               [innerHtml]="regexBold(result.sample)">
       </li>
-      <ul class="paginated">
-        <li *ngIf="results && page > 1" class="glyphicon glyphicon-chevron-left" (click)="pageNumberPrev()"></li>
-        <li *ngFor="let num of pageNumbers()" (click)="pageNumberOnClick(num)"
-            class="page_num" [class.curr_page_num]="num === page">{{ num }}</li>
-        <li *ngIf="results && (page + 1) * 6 < count"
-            class="glyphicon glyphicon-chevron-right"
-            (click)="pageNumberNext()"></li>
-      </ul>
+      <li>
+        <ul class="paginated">
+          <li *ngIf="results && page > 1"
+              class="glyphicon glyphicon-chevron-left"
+              (click)="pageNumberPrev()"
+          >
+          </li>
+          <li *ngFor="let num of pageNumbers()" (click)="pageNumberOnClick(num)"
+              class="page_num" [class.curr_page_num]="num === page">{{ num }}</li>
+          <li *ngIf="results && (page + 1) * 6 < count"
+              class="glyphicon glyphicon-chevron-right"
+              (click)="pageNumberNext()"
+              ></li>
+        </ul>
+      </li>
     </ul>
   </div>
   <!--

@@ -35,3 +35,38 @@
 a {
   font-size: large;
 }
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  width: inherit;
+}
+
+.search-box-item {
+  font-size: small;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: lightgray;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: lightgray;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  display: block;
+  cursor: pointer;
+  padding: 2% 4%;
+  clear: both;
+  float: left;
+  width: 110%;
+}
+
+.last {
+  border-bottom: solid;
+  border-bottom-width: thin;
+  border-bottom-color: lightgray;
+}
+
+.search-box-item:hover {
+  background-color: lightskyblue;
+}

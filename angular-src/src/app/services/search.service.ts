@@ -10,6 +10,18 @@ export class SearchService {
 
   constructor(private http: Http) { }
 
+  asyncSearchInput(input) {
+    if (input.length == 0) {
+      return;
+    }
+
+    let params = new URLSearchParams();
+    params.set('input', input);
+
+    return this.http.get('http://' + location.hostname + ':3000/samples/async_search', {search: params})
+      .map(res => res.json());
+  }
+
   // Retrieve all samples in database.
   retrieveSamples(input, num) {
     if(input.length == 0) {
@@ -23,7 +35,6 @@ export class SearchService {
     return this.http.get('http://' + location.hostname + ':3000/samples/get_samples', {search: params})
       .map(res => res.json());
   }
-
 
 
   // Retrieve one sample by name
