@@ -1,4 +1,4 @@
 module.exports = {
     database: '<Your DB Client URI Here>',
-    secret: 'somesecret'
+    secret: 'Your Secret Key Here'
 };
