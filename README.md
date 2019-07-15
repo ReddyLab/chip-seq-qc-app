@@ -1,26 +1,16 @@
 # ChIP-DB
-A MEAN (**M**ongoDB, **E**xpressJS, **A**ngular2, **N**odeJS) web application that visualizes
-and displays ChIP-seq QC metrics for assessing and validating sample quality for
-[the Reddy Lab](http://reddylab.org/). You can either view the deployed web application [here](http://67.159.92.22:4200/)
-or create a local version through the instructions below.
+A web application that visualizes and displays ChIP-seq QC metrics for assessing and validating sample quality for
+[the Reddy Lab](http://reddylab.org/). You can view the deployed web application [here](chipdb.reddylab.org).
 
-## Getting Started
+## Uploading Your Experiments
+Data uploads are connected to the [Reddy Lab's own Jupyter notebook pipeline](https://github.com/alexbarrera/ggr-cwl-ipynb-gen) developed by Alex Barrera.
+With correct configurations and permissions (user + password), users can run the `Data Upload` cell in the Jupyter notebook that can be found at the very end of the cell. The results will upload directly to ChIP-DB once available.
+To ensure successful upload, is important that users run the `Data Upload` step after all previous Jupyter notebook steps have been successfully completed.
 
-Clone the project repository to your local device. You will need to download and setup
-[MongoDB](https://www.mongodb.com/download-center?jmp=tutorials#enterprise).
-
-#### Database initialization
-Once you have MongoDB setup on your local device, you will need to import data. To import the data provided in the
-project directory, use the following code from your shell:
-
-```
-mongoimport -d chipseq_qc -c samples --type tsv --file <Your-Project-Repo>/chipseq_QCsummary.tsv --headerline
-```
-
-This will initialize your database with the appropriate collections. You will need to run `mongod` from your shell before running the app in order to host the database on your local device. 
-
-#### Running the app
-First, run `npm install` in the project directory to install the appropriate dependencies. Then, run `npm start` (or `nodemon` if you have it) for the Express/NodeJS server. Then in a separate tab, navigate to the *angular-src* directory and run `npm install`. Once finished, run `ng serve` from the *angular-src* directory in order to run the dev server for Angular2. Navigate to `http://localhost:4200/` to use.
+## Viewing Your Data
+Sequencing data and results can be publicly viewed on the [ChIP-DB website](http://chipdb.reddylab.org/). 
+Samples and flowcells can be found via the search bar on the top of the page. A feature to search through all
+existing flowcells is in progress and will be released in the newest deployment (V1.1) of the app.
 
 ## Built With
 * [MongoDB](https://www.mongodb.com/) - A document-oriented NoSQL database
@@ -30,6 +20,17 @@ First, run `npm install` in the project directory to install the appropriate dep
 * [plotFingerprint](http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html) - A Python tool
 created by [deepTools](http://deeptools.readthedocs.io/en/latest/index.html) for analysis of ChIP-seq data.
 * [Docker](https://www.docker.com/) - A software container platform that makes shipping and using software easier by containerizing system libraries and dependencies.
+
+# FAQs
+
+## My internet is working, and I cannot view the website.
+The website is deployed on Duke's RAPID machines. If these machines somehow manage to go down, you will not be able to view the website. Once the machines come back on, ChIP-DB will automatically start once again. If this problem persists or the website is down for a long period of time, please consult Alex Barrera regarding the Duke RAPID machines.
+
+## I ran the Data Upload cell, but my data is not on the website.
+Everything that has been successfully uploaded can be viewed on the website. If your data is not viewable, there was an issue with the upload. Check for logs or error messages in the Jupyter notebook.
+
+## How do I get the credentials for data upload?
+<COMING SOON>
 
 ## Author
 Darryl Yan
