@@ -30,7 +30,9 @@ The website is deployed on Duke's RAPID machines. If these machines somehow mana
 Restarting the website should not be necessary, as the application implements a restart policy in Docker.
 If this is not the case, you can reboot the application by entering the `/home/djy3/chip-seq-qc-app` directory
 and run:
-```docker-compose up -d``` 
+```
+docker-compose up -d
+``` 
 
 To deploy changes in the application, you must change the source code in the application, test it locally, and then
 follow these deployment steps:
