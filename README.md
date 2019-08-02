@@ -24,13 +24,30 @@ created by [deepTools](http://deeptools.readthedocs.io/en/latest/index.html) for
 # FAQs
 
 ## My internet is working, and I cannot view the website.
-The website is deployed on Duke's RAPID machines. If these machines somehow manage to go down, you will not be able to view the website. Once the machines come back on, ChIP-DB will automatically start once again. If this problem persists or the website is down for a long period of time, please consult Alex Barrera regarding the Duke RAPID machines.
+The website is deployed on Duke's RAPID machines. If these machines somehow manage to go down, you will not be able to view the website. Once the machines come back on, ChIP-DB will automatically start once again. If this problem persists or the website is down for a long period of time, please consult Alex Barrera regarding the Duke RAPID machines. 
+
+## I would like to restart or deploy changes to the application.
+Restarting the website should not be necessary, as the application implements a restart policy in Docker.
+If this is not the case, you can reboot the application by entering the `/home/djy3/chip-seq-qc-app` directory
+and run:
+```docker-compose up -d``` 
+
+To deploy changes in the application, you must change the source code in the application, test it locally, and then
+follow these deployment steps:
+
+1) Rebuild the server and client images (should take a few minutes).
+The key here is that you have tags matching the `express-server` or `angular-cli` images specified in `docker-compose.yml`:
+```
+cd <PATH TO SERVER OR CLIENT DIRECTORY>
+docker build . -t <IMAGE NAME>
+```
+2) Once the new images have completed building, run `docker-compose up -d` and your changes will be deployed.
 
 ## I ran the Data Upload cell, but my data is not on the website.
 Everything that has been successfully uploaded can be viewed on the website. If your data is not viewable, there was an issue with the upload. Check for logs or error messages in the Jupyter notebook.
 
 ## How do I get the credentials for data upload?
-<COMING SOON>
+Please refer to Alex about what the credentials are and how you can use them.
 
 ## Author
 Darryl Yan
